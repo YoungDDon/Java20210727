@@ -15,3 +15,7 @@ public class Foo {
         System.out.println("stop!");
     }
 }
+
+class Tv{
+
+}
