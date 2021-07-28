@@ -1,15 +1,15 @@
 package variable;
 
-public class jungsuEx {
+public class JungsuEx {
     byte b1;
     short s1;
     int i1;
     long l1;
 
-    public jungsuEx() { }
+    public JungsuEx() { }
 
     public static void main(String[] args){
-        jungsuEx j = new jungsuEx();
+        JungsuEx j = new JungsuEx();
         byte b2=(byte)130;
         System.out.println(j.b1);
         System.out.println(j.s1);
