@@ -2,7 +2,7 @@ package Object1;
 
 public class Ex6_19 {
     public static void main(String[] args) {
-        MyTv t = new MyTv();
+        MyTv_ t = new MyTv_();
         System.out.println(t);
         t.turnOnOff();
         t.channelDown();
@@ -12,17 +12,24 @@ public class Ex6_19 {
         t.volumeUp();
         t.turnOnOff();
         System.out.println(t);
+        t.gotoPrevChannel();
     }
 }
-class MyTv {
+class MyTv_ {
     boolean isPowerOn;
     int channel;
+    private int prevChannel;
     int volume;
 
     final int MAX_VOLUME = 100;
     final int MIN_VOLUME = 0;
     final int MAX_CHANNEL = 100;
     final int MIN_CHANNEL = 1;
+    public void gotoPrevChannel() {
+        System.out.println("현재 채널:" + channel);
+        setChannel(prevChannel);
+        System.out.println("이전 채널:" + channel);
+    }
 
     @Override
     public String toString() {
@@ -47,6 +54,7 @@ class MyTv {
 
     public void setChannel(int channel) {
         if(isPowerOn==true) {
+            prevChannel = channel;
             if (channel >= MAX_CHANNEL) {
                 channel = MIN_CHANNEL;
             } else this.channel = channel;
@@ -62,6 +70,7 @@ class MyTv {
 
     void channelUp() {
         if(isPowerOn==true) {
+            prevChannel = channel;
             if (channel >= MAX_CHANNEL) {
                 channel = MIN_CHANNEL;
             } else channel++;
@@ -69,6 +78,7 @@ class MyTv {
     }
     void channelDown() {
         if(isPowerOn==true) {
+            prevChannel = channel;
             if (channel < MIN_CHANNEL) {
                 channel = MAX_CHANNEL;
             } else channel--;
